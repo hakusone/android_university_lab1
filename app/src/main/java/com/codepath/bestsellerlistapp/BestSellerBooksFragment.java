@@ -50,12 +50,12 @@ public class BestSellerBooksFragment extends Fragment implements OnListFragmentI
 
         Context context = view.getContext();
         recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-        updateAdapter(progressBar, recyclerView);
+        updateAdapter(context, progressBar, recyclerView);
         return view;
     }
 
 
-    private void updateAdapter(final ContentLoadingProgressBar progressBar, final RecyclerView recyclerView) {
+    private void updateAdapter(Context context, final ContentLoadingProgressBar progressBar, final RecyclerView recyclerView) {
         progressBar.show();
         NYTimesApiClient nyTimesApiClient = new NYTimesApiClient();
         nyTimesApiClient.getBestSellersList(new CallbackResponse<List<BestSellerBook>>() {
